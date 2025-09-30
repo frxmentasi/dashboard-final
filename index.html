@@ -163,50 +163,36 @@ footer {
   border-top-right-radius: 16px;
   box-shadow: 0px -4px 12px rgba(0,0,0,0.1);
 }
-  /* ========== RESPONSIVE UNTUK HP ========== */
-@media (max-width: 600px) {
+ @media (max-width: 600px) {
   header {
-    padding: 16px;
+    padding: 14px;
   }
   header h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.4;
   }
   header h1 span {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
-  /* Kartu ringkasan jadi 2 kolom */
   .cards {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    padding: 12px;
+    grid-template-columns: 1fr 1fr; /* 2 kolom biar rapi */
   }
   .card-summary h3 {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
   .card-summary p {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
-  /* Map & container stack */
-  .container {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 12px;
-  }
   #map {
-    height: 40vh; /* lebih pendek agar muat */
+    height: 55vh; /* lebih ramping di HP */
   }
 
-  /* Grid chart jadi 1 kolom */
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 12px;
+  canvas {
+    max-height: 220px; /* chart lebih kecil */
   }
 
-  /* Tabel teks lebih kecil */
   table {
     font-size: 0.75rem;
   }
@@ -214,13 +200,11 @@ footer {
     padding: 6px;
   }
 
-  /* Footer kecil */
   footer {
-    font-size: 0.75rem;
-    padding: 10px;
+    font-size: 0.7rem;
+    padding: 8px;
   }
 }
-
   </style>
 </head>
 <body>
