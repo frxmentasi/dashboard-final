@@ -294,6 +294,41 @@ footer {
 }
 
 /* RESPONSIVE HP */
+/* Layout utama */
+.layout {
+  display: flex;
+  gap: 16px;
+  margin: 12px;
+}
+
+/* Map dan sidebar chart/tabel */
+#map {
+  flex: 2;
+  width: 100%;
+  height: 70vh;  /* dominan di desktop */
+  min-height: 320px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 16px rgba(0,0,0,0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* CARD FULL dan chart */
+.card-full {
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+}
+
+/* RESPONSIVE HP */
 @media (max-width: 768px) {
   .layout {
     flex-direction: column; /* stack ke bawah */
@@ -303,12 +338,14 @@ footer {
 
   #map {
     width: 100%;    /* full lebar layar */
-    height: 65vh;   /* tinggi peta menyesuaikan */
+    height: 55vh;   /* tinggi peta menyesuaikan */
+    order: 1;       /* pastikan peta tetap di atas */
   }
 
   .sidebar {
     width: 100%;    /* chart/tabel di bawah peta */
     gap: 10px;
+    order: 2;       /* sidebar dipindah di bawah peta */
   }
 
   canvas {
@@ -323,6 +360,7 @@ footer {
     padding: 6px;
   }
 }
+
 </style>
 </head>
 <body>
