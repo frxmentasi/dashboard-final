@@ -258,45 +258,47 @@ footer {
   box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
 }
 
-/* Responsive untuk HP */
+/* Responsive untuk HP tanpa sidebar */
 @media (max-width: 600px) {
   .layout {
-    flex-direction: column; /* stack ke bawah */
+    flex-direction: column; /* semua stack ke bawah */
     gap: 12px;
     margin: 8px;
   }
 
   #map {
-    width: 100%;        /* full lebar hp */
-    height: 50vh;       /* tinggi disesuaikan */
+    width: 100%;        /* peta full lebar HP */
+    height: 70vh;       /* peta dominan */
     min-height: 260px;
   }
 
+  /* Sidebar diganti jadi stack biasa */
   .sidebar {
-    width: 100%;        /* isi penuh */
+    width: 100%;        /* penuh lebar */
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;          /* jarak antar chart/tabel */
   }
 
   .card-full {
-    padding: 10px;
-    font-size: 0.85rem;
+    padding: 12px;
+    font-size: 0.9rem;
   }
 
   canvas {
-    max-height: 200px; /* chart lebih kecil */
+    max-height: 250px;  /* chart lebih kecil */
   }
 
   table {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
+
   th, td {
-    padding: 6px;
+    padding: 8px;
   }
 
   footer {
-    font-size: 0.7rem;
-    padding: 8px;
+    font-size: 0.75rem;
+    padding: 10px;
   }
 }
 </style>
