@@ -163,36 +163,61 @@ footer {
   border-top-right-radius: 16px;
   box-shadow: 0px -4px 12px rgba(0,0,0,0.1);
 }
-    @media (max-width: 1024px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-  #map {
-    height: 50vh;
-  }
-}
-
-@media (max-width: 768px) {
+   /* ========== RESPONSIVE UNTUK HP ========== */
+@media (max-width: 600px) {
   header {
+    padding: 16px;
+  }
+  header h1 {
     font-size: 1.2rem;
+    line-height: 1.4;
   }
-  .cards {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  header h1 span {
+    font-size: 0.9rem;
   }
-  #map {
-    height: 45vh;
-  }
-}
 
-@media (max-width: 480px) {
+  /* Kartu ringkasan jadi 2 kolom */
   .cards {
     grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+  .card-summary h3 {
+    font-size: 0.75rem;
   }
   .card-summary p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+  }
+
+  /* Map & container stack */
+  .container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 12px;
   }
   #map {
-    height: 40vh;
+    height: 40vh; /* lebih pendek agar muat */
+  }
+
+  /* Grid chart jadi 1 kolom */
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 12px;
+  }
+
+  /* Tabel teks lebih kecil */
+  table {
+    font-size: 0.75rem;
+  }
+  th, td {
+    padding: 6px;
+  }
+
+  /* Footer kecil */
+  footer {
+    font-size: 0.75rem;
+    padding: 10px;
   }
 }
   </style>
@@ -203,7 +228,7 @@ footer {
 
 <!-- RINGKASAN -->
 <div class="cards">
-  <div class="card-summary"><h3>Jumlah Laka Lantas</h3><p id="totalLaka">0</p></div>
+  <div class="card-summary"><h3>Jumlah Kecelakaan Lalu Lintas</h3><p id="totalLaka">0</p></div>
   <div class="card-summary"><h3>Jumlah Korban</h3><p id="totalKorban">0</p></div>
   <div class="card-summary"><h3>Luka Ringan</h3><p id="totalLR">0</p></div>
   <div class="card-summary"><h3>Luka Berat</h3><p id="totalLB">0</p></div>
@@ -216,19 +241,19 @@ footer {
   
   <!-- PETA -->
   <div class="card" style="grid-row: span 2;">
-    <h3 style="text-align:center;">🗺️ Peta Persebaran Kecelakaan</h3>
+    <h3 style="text-align:center;">Peta Persebaran Kecelakaan</h3>
     <div id="map" style="height:620px;"></div>
   </div>
 
   <!-- KEJADIAN PER BULAN -->
   <div class="card">
-    <h3 style="text-align:center;">📅 Jumlah Kecelakaan per Bulan</h3>
+    <h3 style="text-align:center;">Jumlah Kejadian Kecelakaan Setiap Bulan</h3>
     <canvas id="chartJumlah"></canvas>
   </div>
 
   <!-- TINGKAT KECELAKAAN -->
   <div class="card">
-    <h3 style="text-align:center;">📌 Tingkat Kecelakaan</h3>
+    <h3 style="text-align:center;">Tingkat Keparahan Kecelakaan</h3>
     <canvas id="chartKecelakaan"></canvas>
   </div>
 
@@ -236,18 +261,18 @@ footer {
 
 <div class="card-grid">
   <div class="card-full">
-    <h3 style="text-align:center;">💰 Kerugian Materi Bulanan</h3>
+    <h3 style="text-align:center;">Kerugian Materi Tiap Bulan</h3>
     <canvas id="chartKerugian"></canvas>
   </div>
   <div class="card-full">
-    <h3 style="text-align:center;">👥 Jumlah Korban</h3>
+    <h3 style="text-align:center;"> Jumlah Korban  Kecelakaan Lalu Lintas</h3>
     <canvas id="chartKorban"></canvas>
   </div>
 </div>
 
 <div class="card-grid">
   <div class="card-full"> 
-    <h3 style="text-align:center;">Jumlah Korban per Bulan</h3>
+    <h3 style="text-align:center;">Jumlah Korban Kecelakaan Lalu Lintas setiap Bulan</h3>
     <canvas id="chartKorbanBulanan"></canvas>
   </div>
   <div class="card-full">
@@ -258,17 +283,17 @@ footer {
 
 <div class="card-grid">
   <div class="card-full">
-    <h3 style="text-align:center;">🛤️ Status Jalan</h3>
+    <h3 style="text-align:center;">Status Jalan Kejadian Kecelakaan</h3>
     <canvas id="chartStatus"></canvas>
   </div>
   <div class="card-full">
-    <h3 style="text-align:center;">🛣️ Statistik Fungsi Jalan</h3>
+    <h3 style="text-align:center;">Fungsi Jalan Kejadian Kecelakaan</h3>
     <canvas id="chartFungsiJalan"></canvas>
   </div>
 </div>
 
 <div class="card-full">
-    <h3 style="text-align:center;">🚦 Tipe Laka Lantas</h3>
+    <h3 style="text-align:center;">Tipe Kecelakaan Lalu Lintas</h3>
     <table id="tableLaka" style="width:100%; border-collapse:collapse; text-align:flat-left;">
       <thead>
         <tr style="background:#2c3e50; color:#fff;">
